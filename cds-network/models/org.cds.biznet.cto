@@ -1,20 +1,77 @@
 /**
- * My commodity trading network
+  * A business network for cds
+  */
+
+namespace org.biznet.cds
+
+/**
+ * The type of cds product being shipped
  */
-namespace org.cds.biznet
-asset Commodity identified by tradingSymbol {
-    o String tradingSymbol
-    o String description
-    o String mainExchange
-    o Double quantity
-    --> Trader owner
+enum ProductType {
+  o BOND
+  o HEDGE 
 }
-participant Trader identified by tradeId {
-    o String tradeId
-    o String firstName
-    o String lastName
+
+/**
+ * The status of a payment
+ */
+enum PaymentStatus {
+  o CREATED
+  o IN_PROGRESS
+  o FULFILLED
 }
-transaction Trade {
-    --> Commodity commodity
-    --> Trader newOwner
+
+abstract transaction PaymentTransaction {
+    --> Payment payment
+}
+
+transaction PaymentReceived extends PaymentTransaction {
+}
+
+/**
+ * A payment being tracked as an asset on the ledger
+ */
+asset Payment identified by paymentId {
+  o String paymentId
+  o ProductType type
+  o PaymentStatus status
+  o Long amountPaid
+  --> Contract contract
+}
+
+/**
+ * Defines a contract 
+ */
+asset Contract identified by contractId {
+  o String contractId
+  --> BondIssuer bondIssuer
+  --> CDSSeller cdsSeller
+  --> CDSBuyer cdsBuyer
+  o DateTime arrivalDateTime
+}
+
+/**
+ * A concept for street address
+ */
+concept Address {
+  o String city optional
+  o String country
+  o String street optional
+  o String zip optional
+}
+
+/**
+ * An abstract participant type in this business network
+ */
+abstract participant Business identified by email {
+  o String email
+  o Address address
+  o Double accountBalance
+}
+
+participant BondIssuer extends Business {
+}
+participant CDSBuyer extends Business {
+}
+participant CDSSeller extends Business {
 }
