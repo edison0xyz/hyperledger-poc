@@ -6,31 +6,16 @@ Structure:
 * cds-network: codebase for hyperledger
 * fabric-tools: config files downloaded from hyperledger, but edited for cds-network
 
+### Running CDS Network
 
-
-### Running composer-network 
+Prerequisites: 
 
 PeerAdmin must be generated in /tmp file. Enroll secret and pw can be anything. 
 
+From the `/cds-network` directory: 
 
+1. Create the `.bna` file. `composer archive create -t dir -n .`
+2. Start the Peer Nodes and Chaincode Container (simulated using Docker images): `./restartCDSFabric.sh`
+3. Start the Hyperledger Network: `./startComposerFunctions.sh`
 
-Run from `/cds-network` directory. 
-
-Firstly, create the `.bna` file. 
-```
-composer archive create -t dir -n .
-```
-
-The following codes first generates a network card, and attach itself to the hyoerledger-network. 
-
-```
-
-composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName cds-network
-
-composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile cds-network@0.0.1.bna --file networkadmin.card
-
-composer card import --file networkadmin.card
-
-composer network ping --card admin@cds-network # test network
-
-```
+Alternatively, you can do `./runall.sh` which will run all three scripts at once. 
