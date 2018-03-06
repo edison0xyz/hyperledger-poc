@@ -1,0 +1,13 @@
+  ## CDS Buyers
+  {
+    "$class": "org.biznet.cds.CDSBuyer",
+    "email": "abc@cmu.edu",
+    "address": {
+      "$class": "org.biznet.cds.Address",
+      "city": "Pittsburgh",
+      "country": "USA",
+      "street": "Forbes Avenue",
+      "zip": "15213"
+    },
+    "accountBalance": 100
+  }
