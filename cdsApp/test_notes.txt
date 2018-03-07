@@ -1,43 +1,44 @@
   ## CDS Buyers
   {
-    "$class": "org.biznet.cds.CDSBuyer",
-    "email": "abc@cmu.edu",
-    "address": {
-      "$class": "org.biznet.cds.Address",
-      "city": "Pittsburgh",
-      "country": "USA",
-      "street": "Forbes Avenue",
-      "zip": "15213"
-    },
-    "accountBalance": 100
-  }
-
+  "$class": "org.biznet.cds.CDSBuyer",
+  "id": "2",
+  "address": {
+    "$class": "org.biznet.cds.Address",
+    "city": "string",
+    "country": "string",
+    "street": "string",
+    "zip": "string",
+    "id": "string"
+  },
+  "accountBalance": 200
+}
   # CDS Sellers
 
-    {
-    "$class": "org.biznet.cds.CDSSeller",
-    "email": "seller@cds.net",
-    "address": {
-      "$class": "org.biznet.cds.Address",
-      "city": "New York",
-      "country": "USA",
-      "street": "5th Avenue",
-      "zip": "111111"
-    },
-    "accountBalance": 1000
-  }
+{
+  "$class": "org.biznet.cds.CDSSeller",
+  "id": "2",
+  "address": {
+    "$class": "org.biznet.cds.Address",
+    "city": "string",
+    "country": "string",
+    "street": "string",
+    "zip": "string",
+    "id": "string"
+  },
+  "accountBalance": 200
+}
 
   # Issuer
   {
-  "$class": "org.biznet.cds.CDSSeller",
-  "email": "issuer@cds.net",
-  "address": {
-    "$class": "org.biznet.cds.Address",
-    "city": "San Francisco",
-    "country": "USA",
-    "street": "Market Street",
-    "zip": "111111",
-    "id": "2"
-  },
-  "accountBalance": 5000
+    "$class": "org.biznet.cds.BondIssuer",
+    "id": "1",
+    "address": {
+      "$class": "org.biznet.cds.Address",
+      "city": "string",
+      "country": "string",
+      "street": "string",
+      "zip": "string"
+    },
+    "accountBalance": 100
+  }
 }

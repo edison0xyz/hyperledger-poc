@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable()
 export class IssuerService {
 
-  private issuerUrl = 'http://localhost:3000/api/BondIssuer';
+  private issuerUrl = 'http://localhost:3000/api/org.biznet.cds.BondIssuer';
 
   constructor(
     private http: HttpClient

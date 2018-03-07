@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable()
 export class SellerService {
 
-  private sellerUrl = 'http://localhost:3000/api/CDSSeller';
+  private sellerUrl = 'http://localhost:3000/api/org.biznet.cds.CDSSeller';
 
   constructor(
     private http: HttpClient

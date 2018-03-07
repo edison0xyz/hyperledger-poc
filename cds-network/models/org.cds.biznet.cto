@@ -63,8 +63,8 @@ concept Address {
 /**
  * An abstract participant type in this business network
  */
-abstract participant Business identified by email {
-  o String email
+abstract participant Business identified by id {
+  o String id
   o Address address
   o Double accountBalance
 }

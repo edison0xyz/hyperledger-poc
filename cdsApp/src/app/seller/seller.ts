@@ -1,6 +1,6 @@
 export class Seller {
     $class: string;
-    email: string;
+    id: string;
     address: {
       $class: string,
       city: string;
