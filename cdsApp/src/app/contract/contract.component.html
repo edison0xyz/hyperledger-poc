@@ -6,7 +6,7 @@
       <th scope="col">Issuer</th>
       <th scope="col">Buyer</th>
       <th scope="col">Seller</th>
-      <th scope="col">Timestamp</th>
+      <th scope="col">Timestamp (UTC)</th>
     </tr>
   </thead>
   <tbody *ngFor="let contract of contracts">
@@ -15,7 +15,7 @@
         <td>{{contract.bondIssuer | slice: 35}}</td>
         <td>{{contract.cdsSeller | slice: 34}}</td>
         <td>{{contract.cdsBuyer | slice: 33}}</td>
-        <td>{{contract.arrivalDateTime | date : 'MMM d, y h:mm:ss a'}}</td>
+        <td>{{contract.timestamp | date : 'MMM d, y h:mm:ss a'}}</td>
       </tr>
   </tbody>
 </table>

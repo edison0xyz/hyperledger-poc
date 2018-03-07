@@ -1,4 +1,5 @@
 import requests
+import datetime
 
 api = "http://localhost:3000/api/org.biznet.cds.BondIssuer"
 
@@ -49,5 +50,21 @@ for bi in buyers:
   data["$class"] = "org.biznet.cds.CDSSeller"
   data["id"], data["name"] = bi[0], bi[1]
   data["location"], data["accountBalance"] = bi[2], bi[3]
+  r = requests.post(url = api, data = data)
+  print(r.text) 
+
+# Load Contracts
+api = "http://localhost:3000/api/org.biznet.cds.Contract"
+contracts = [
+  ["1", "resource:org.biznet.cds.BondIssuer#1", "resource:org.biznet.cds.CDSSeller#1", "resource:org.biznet.cds.CDSBuyer#1"],
+  ["2", "resource:org.biznet.cds.BondIssuer#2", "resource:org.biznet.cds.CDSSeller#2", "resource:org.biznet.cds.CDSBuyer#2"]
+]
+print("Loading Contracts:")
+for bi in contracts:
+  data = {}
+  data["$class"] = "org.biznet.cds.Contract"
+  data["contractId"], data["bondIssuer"] = bi[0], bi[1]
+  data["cdsSeller"], data["cdsBuyer"] = bi[2], bi[3]
+  data["timestamp"] = datetime.datetime.utcnow()
   r = requests.post(url = api, data = data)
   print(r.text)
