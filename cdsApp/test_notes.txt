@@ -11,3 +11,33 @@
     },
     "accountBalance": 100
   }
+
+  # CDS Sellers
+
+    {
+    "$class": "org.biznet.cds.CDSSeller",
+    "email": "seller@cds.net",
+    "address": {
+      "$class": "org.biznet.cds.Address",
+      "city": "New York",
+      "country": "USA",
+      "street": "5th Avenue",
+      "zip": "111111"
+    },
+    "accountBalance": 1000
+  }
+
+  # Issuer
+  {
+  "$class": "org.biznet.cds.CDSSeller",
+  "email": "issuer@cds.net",
+  "address": {
+    "$class": "org.biznet.cds.Address",
+    "city": "San Francisco",
+    "country": "USA",
+    "street": "Market Street",
+    "zip": "111111",
+    "id": "2"
+  },
+  "accountBalance": 5000
+}

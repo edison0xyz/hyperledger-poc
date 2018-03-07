@@ -9,9 +9,11 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ListingsComponent } from './listings/listings.component';
 import { HomeComponent } from './home/home.component';
 import { SellerComponent } from './seller/seller.component';
+import { IssuerComponent } from './issuer/issuer.component';
 
 import { CdsbuyerService} from './cdsbuyer/cdsbuyer.service';
 import { SellerService} from './seller/seller.service';
+import { IssuerService} from './issuer/issuer.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { SellerService} from './seller/seller.service';
     CdsbuyerComponent,
     ListingsComponent,
     HomeComponent,
-    SellerComponent
+    SellerComponent,
+    IssuerComponent
   ],
   imports: [
     HttpClientModule,
@@ -28,7 +31,8 @@ import { SellerService} from './seller/seller.service';
   ],
   providers: [
     CdsbuyerService,
-    SellerService
+    SellerService,
+    IssuerService
   ],
   bootstrap: [AppComponent]
 })
