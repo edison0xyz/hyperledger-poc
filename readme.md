@@ -8,12 +8,15 @@ Structure:
 * fabric-tools: config files downloaded from hyperledger, but edited for cds-network
 * cdsApp: Web application to view transactions. Developed on Angular 5.
 
-## Running CDS Network
+## Deploying
 
-Prerequisites:
+To deploy, you must first start the fabric network, start REST service and then launch the web app. 
+
+### Prerequisites:
 
 PeerAdmin must be generated in `/tmp` file. Enroll secret and pw can be anything. 
 
+### Start Fabric Network
 From the `/cds-network` directory: 
 
 1. Create the `.bna` file. `composer archive create -t dir -n .`
@@ -22,9 +25,17 @@ From the `/cds-network` directory:
 
 Alternatively, you can do `./runall.sh` which will run all scripts necessary.
 
-Deploy a REST service: `composer-rest-server`. Name of business network: `admin@cds-network`.
+### Start REST service
+Deploy a REST service: `composer-rest-server`. Mark the following options:
+```
+? Enter the name of the business network card to use: admin@cds-network
+? Specify if you want namespaces in the generated REST API: always use namespaces
+? Specify if you want to enable authentication for the REST API using Passport: No
+? Specify if you want to enable event publication over WebSockets: No
+? Specify if you want to enable TLS security for the REST API: No
+```
 
-## Running the Web App
+### Start WEB App
 
 From the `/cdsApp` directory:
 

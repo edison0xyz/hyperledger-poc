@@ -1,0 +1,22 @@
+<h1>Contracts</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Issuer</th>
+      <th scope="col">Buyer</th>
+      <th scope="col">Seller</th>
+      <th scope="col">Timestamp</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let contract of contracts">
+      <tr>
+        <td>{{contract.contractId}}</td>
+        <td>{{contract.bondIssuer | slice: 35}}</td>
+        <td>{{contract.cdsSeller | slice: 34}}</td>
+        <td>{{contract.cdsBuyer | slice: 33}}</td>
+        <td>{{contract.arrivalDateTime | date : 'MMM d, y h:mm:ss a'}}</td>
+      </tr>
+  </tbody>
+</table>
+

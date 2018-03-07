@@ -10,10 +10,12 @@ import { ListingsComponent } from './listings/listings.component';
 import { HomeComponent } from './home/home.component';
 import { SellerComponent } from './seller/seller.component';
 import { IssuerComponent } from './issuer/issuer.component';
+import { ContractComponent } from './contract/contract.component';
 
 import { CdsbuyerService} from './cdsbuyer/cdsbuyer.service';
 import { SellerService} from './seller/seller.service';
 import { IssuerService} from './issuer/issuer.service';
+import { ContractService} from './contract/contract.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { IssuerService} from './issuer/issuer.service';
     ListingsComponent,
     HomeComponent,
     SellerComponent,
-    IssuerComponent
+    IssuerComponent,
+    ContractComponent
   ],
   imports: [
     HttpClientModule,
@@ -32,7 +35,8 @@ import { IssuerService} from './issuer/issuer.service';
   providers: [
     CdsbuyerService,
     SellerService,
-    IssuerService
+    IssuerService,
+    ContractService
   ],
   bootstrap: [AppComponent]
 })
