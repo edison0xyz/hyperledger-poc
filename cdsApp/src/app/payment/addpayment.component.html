@@ -1,0 +1,29 @@
+<h1>Add Payment</h1>
+
+<form>
+    <div class="form-group row">
+        <label for="contractid">Contract ID: </label>
+        <div class="col-sm-10">
+            <input (keyup)="clearMessage()" #contractid type="text" class="form-control" id="contractid" placeholder="Enter Contract ID (e.g. 1)">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="amt">Amount ($): </label>
+        <div class="col-sm-10">
+            <input (keyup)="clearMessage()" #amt type="text" class="form-control" id="amt" placeholder="Amount">
+        </div>
+    </div>
+
+    {{ messages }}
+
+
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary btn-sm" (click)="goBack()">go back</button>
+        </div>
+        <div class="col" align="right">
+            <button (click)="add(contractid.value, amt.value)" type="button" class="btn btn-success">Add</button>
+        </div>
+    </div>
+</form>

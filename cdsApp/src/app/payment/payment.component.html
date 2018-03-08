@@ -1,0 +1,29 @@
+
+<div class="row">
+    <div class="col-8"><h1>Payment</h1></div>
+    <div class="col-4" align="right">
+        <button type="button" class="btn btn-success" routerLink="/addpayment">
+          Add New Payment
+        </button>
+    </div>
+  </div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Contract</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let payment of payments">
+      <tr>
+        <td>{{payment.paymentId}}</td>
+        <td>{{payment.contract | slice: 33}}</td>
+        <td>{{payment.amountPaid}}</td>
+        <td>{{payment.status}}</td>
+      </tr>
+  </tbody>
+</table>
