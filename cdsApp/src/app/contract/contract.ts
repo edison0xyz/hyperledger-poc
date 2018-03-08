@@ -4,5 +4,8 @@ export class Contract {
     bondIssuer: string;
     cdsSeller: string;
     cdsBuyer: string;
+    amountPaid: Number;
+    status: string;
+    principalAmount: Number;
     arrivalDateTime: string;
 }

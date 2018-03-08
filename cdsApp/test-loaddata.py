@@ -65,6 +65,10 @@ for bi in contracts:
   data["$class"] = "org.biznet.cds.Contract"
   data["contractId"], data["bondIssuer"] = bi[0], bi[1]
   data["cdsSeller"], data["cdsBuyer"] = bi[2], bi[3]
+  data["status"] = "CREATED"
+  data["principalAmount"] = 100
+  data["amountPaid"] = 0
+  data["type"] = "BOND"
   data["timestamp"] = datetime.datetime.utcnow()
   r = requests.post(url = api, data = data)
   print(r.text)
