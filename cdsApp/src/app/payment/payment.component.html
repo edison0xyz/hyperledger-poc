@@ -24,6 +24,8 @@
         <td>{{payment.contract | slice: 33}}</td>
         <td>{{payment.amountPaid}}</td>
         <td>{{payment.status}}</td>
+        <td><button class="btn btn-light" title="delete payment"
+          (click)="delete(payment)">x</button></td>
       </tr>
   </tbody>
 </table>

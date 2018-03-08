@@ -27,6 +27,11 @@ export class PaymentComponent implements OnInit {
     .subscribe(payments => this.payments = payments);
   }
 
+  delete(payment: Payment): void {
+    this.payments = this.payments.filter(h => h !== payment);
+    this.paymentService.deletePayment(payment).subscribe();
+  }
+
 
   goBack(): void {
     this.location.back();

@@ -29,9 +29,18 @@ export class PaymentService {
   addPayment (payment: Payment): Observable<Payment> {
     console.log(payment);
     return this.http.post<Payment>(this.paymentUrl, payment, httpOptions).pipe(
-      // tap((hero: Payment) => this.log(`added hero w/ id=${hero.id}`)),
       // console.log("post payment service");
       catchError(this.handleError<Payment>('addPayment'))
+    );
+  }
+
+  /** DELETE: delete the hero from the server */
+  deletePayment (payment: Payment): Observable<Payment> {
+    const id = payment.paymentId;
+    const url = `${this.paymentUrl}/${id}`;
+
+    return this.http.delete<Payment>(url, httpOptions).pipe(
+      catchError(this.handleError<Payment>('deletePayment'))
     );
   }
 
