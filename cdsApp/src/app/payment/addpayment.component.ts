@@ -64,8 +64,8 @@ export class AddpaymentComponent implements OnInit {
     if (!contractid && !amountPaid) { return; }
     const contract = 'org.biznet.cds.Contract#' + contractid;
     this.paymentService.addPayment({ contract, amountPaid, status, $class, paymentId } as Payment)
-      .subscribe(hero => {
-        this.payments.push(hero);
+      .subscribe(payment => {
+        this.payments.push(payment);
       });
     this.messages = 'Payment added successfully';
   }

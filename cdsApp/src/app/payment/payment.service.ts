@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Payment } from './payment';
+import { Payment, PaymentReceived } from './payment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,6 +13,7 @@ const httpOptions = {
 export class PaymentService {
 
   private paymentUrl = 'http://localhost:3000/api/org.biznet.cds.Payment';
+  private paymentReceivedUrl = 'http://localhost:3000/api/org.biznet.cds.PaymentReceived';
 
   constructor(
     private http: HttpClient
@@ -41,6 +42,16 @@ export class PaymentService {
 
     return this.http.delete<Payment>(url, httpOptions).pipe(
       catchError(this.handleError<Payment>('deletePayment'))
+    );
+  }
+
+
+  /** POST: add a new payment to the server */
+  markReceived (received: PaymentReceived): Observable<PaymentReceived> {
+    console.log(received);
+    return this.http.post<PaymentReceived>(this.paymentReceivedUrl, received, httpOptions).pipe(
+      // console.log("post payment service");
+      catchError(this.handleError<PaymentReceived>('markReceived'))
     );
   }
 

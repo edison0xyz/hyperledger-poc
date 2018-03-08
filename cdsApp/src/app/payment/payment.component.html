@@ -24,7 +24,9 @@
         <td>{{payment.contract | slice: 33}}</td>
         <td>{{payment.amountPaid}}</td>
         <td>{{payment.status}}</td>
-        <td><button class="btn btn-light" title="delete payment"
+        <td><button class="btn btn-warning" title="Mark as received"
+          (click)="markReceived(payment)" *ngIf="payment.status=='CREATED'">Mark Received</button></td>
+        <td><button class="btn btn-light" title="delete payment" 
           (click)="delete(payment)">x</button></td>
       </tr>
   </tbody>

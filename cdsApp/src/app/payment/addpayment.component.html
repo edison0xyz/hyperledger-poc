@@ -15,7 +15,11 @@
         </div>
     </div>
 
-    {{ messages }}
+    <div class="alert alert-success" role="alert" *ngIf="this.messages">
+        {{ messages }}
+    </div>
+
+    
 
 
     <div class="row">

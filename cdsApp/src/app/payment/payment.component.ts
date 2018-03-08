@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Payment } from './payment';
+import { Payment, PaymentReceived } from './payment';
 import { PaymentService} from './payment.service';
 import { Location, SlicePipe } from '@angular/common';
 
@@ -12,6 +12,7 @@ export class PaymentComponent implements OnInit {
 
   payments: Payment[];
   private cnt = 1;
+  private markedCnt = 1;
 
   constructor(
     private paymentService: PaymentService,
@@ -30,6 +31,21 @@ export class PaymentComponent implements OnInit {
   delete(payment: Payment): void {
     this.payments = this.payments.filter(h => h !== payment);
     this.paymentService.deletePayment(payment).subscribe();
+  }
+
+  markReceived(received: Payment): void {
+
+
+    // Prepare headers
+    const $class = 'org.biznet.cds.PaymentReceived';
+    const payment = 'org.biznet.cds.Payment#' + received.paymentId;
+    // const transactionId = String(this.markedCnt++);
+    // const timestamp = '';
+
+    if (!payment) { return; }
+    // const contract = 'org.biznet.cds.Contract#' + contractid;
+    this.paymentService.markReceived({ payment, $class } as PaymentReceived)
+      .subscribe();
   }
 
 
