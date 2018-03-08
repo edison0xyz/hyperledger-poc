@@ -21,6 +21,12 @@ enum PaymentStatus {
   o FULFILLED
 }
 
+enum ContractStatus {
+  o CREATED
+  o IN_PROGRESS
+  o FULFILLED
+}
+
 abstract transaction PaymentTransaction {
     --> Payment payment
 }
@@ -33,7 +39,6 @@ transaction PaymentReceived extends PaymentTransaction {
  */
 asset Payment identified by paymentId {
   o String paymentId
-  o ProductType type
   o PaymentStatus status
   o Long amountPaid
   --> Contract contract
@@ -47,6 +52,10 @@ asset Contract identified by contractId {
   --> BondIssuer bondIssuer
   --> CDSSeller cdsSeller
   --> CDSBuyer cdsBuyer
+  o ContractStatus status
+  o ProductType type
+  o Long principalAmount
+  o Long amountPaid
   o DateTime timestamp
 }
 
