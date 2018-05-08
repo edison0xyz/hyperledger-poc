@@ -13,6 +13,8 @@ Structure:
 
 Before deploying the application, you must first ensure that the necessary pre-requisites are installed. 
 
+Tested to be running on: 
+* Composer runtime version: 0.19.4
 
 ## Installation
 

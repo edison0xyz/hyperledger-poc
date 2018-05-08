@@ -6,6 +6,12 @@ This directory contains latest stable fabric network `.bna` archive. A business 
 
 Simply run `./startComposerFunctions.sh`. 
 
-### Advanced users
+### Version Information
 
-If you 
+
+```
+The connection to the network was successfully tested: cds-network
+	Business network version: 0.0.2-deploy.0
+	Composer runtime version: 0.19.4
+
+```
