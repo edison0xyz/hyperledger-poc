@@ -4,10 +4,10 @@ Proof of concept is developed on `hyperledger fabric v1.1`. Issues with the mino
 
 Structure:
 
-* cds-network: codebase for hyperledger
-* fabric-tools: config files downloaded from hyperledger, but edited for cds-network
-* cdsApp: Web application to view transactions. Developed on Angular 5.
-
+* `cds-network/`  : Source code for Hyperledger Fabric Network
+* `production/`   : Production-ready deployment of `cds-network/`
+* `fabric-tools/` : Required scripts downloaded from 
+* `cdsApp/`       : Web application
 
 ## Getting Started
 
@@ -15,6 +15,11 @@ Before deploying the application, you must first ensure that the necessary pre-r
 
 Tested to be running on: 
 * Composer runtime version: 0.19.4
+* Hyperledger Fabric v1.1
+* Typescript 2.7.2
+* Angular v. 5.2.7
+* Node 10.0.0
+* Angular CLI: 1.6.7
 
 ## Installation
 
@@ -49,43 +54,20 @@ If you do not have any of the tools above, follow the instructions below:
 3. Install the development environment by following these steps: `https://hyperledger.github.io/composer/latest/installing/development-tools`
 
 
-
-
 ## Deploying
 
-To deploy, you must first start the fabric network, start REST service and then launch the web app. 
+To deploy, you must first start the fabric network, start REST service and then launch the web app. There are two ways to deploy. One, you can go run from my production-environment within `production/`. For _more advanced users_, you can try to compile and run from the `cds-network/` directory. 
 
-### Prerequisites:
+### Run from `production/`
 
-PeerAdmin must be generated in `/tmp` file. From `~/fabric-dev-servers/`, run `./createPeerAdminCard.sh`.
+1. Go to `production/` and run `./startComposerFunctions.sh`. Refer to [Here](production/readme.md) for more documentation.
+2. Start the service for webserver. From the `cdsApp/` directory, run `ng serve --open`. The webapp will be deployed on `localhost:4200`.
 
-### Start Fabric Network
-From the `/cds-network` directory: 
+### Compile latest source code from `cds-network/`
 
-1. Create the `.bna` file. `composer archive create -t dir -n .`
-2. Start the Peer Nodes and Chaincode Container (simulated using Docker images): `./restartCDSFabric.sh`
-3. Start the Hyperledger Network: `./startComposerFunctions.sh`
+Source code for Hyperledger Fabric is found in cds-network.
 
-Alternatively, you can do `./runall.sh` which will run all scripts necessary.
-
-### Start REST service
-Deploy a REST service: `composer-rest-server`. Mark the following options:
-```
-? Enter the name of the business network card to use: admin@cds-network
-? Specify if you want namespaces in the generated REST API: always use namespaces
-? Specify if you want to enable authentication for the REST API using Passport: No
-? Specify if you want to enable event publication over WebSockets: No
-? Specify if you want to enable TLS security for the REST API: No
-```
-
-### Start WEB App
-
-From the `/cdsApp` directory:
-
-* Run `ng serve --open`. Web app should be deployed on `locahost:4200`.
-
-
-
----
-
-composer network install --card PeerAdmin@hlfv1 -a cds-network@0.0.1.bna
+From `cds-network/`:
+1. Run the command: `composer archive create -t dir -n .` 
+2. Run `./startComposerFunctions.sh`
+3. Start the service for webserver. From the `cdsApp/` directory, run `ng serve --open`. The webapp will be deployed on `localhost:4200`.
