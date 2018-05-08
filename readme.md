@@ -19,6 +19,7 @@ Tested to be running on:
 * Typescript 2.7.2
 * Angular v. 5.2.7
 * Node 10.0.0
+
 * Angular CLI: 1.6.7
 
 ## Installation
@@ -71,3 +72,10 @@ From `cds-network/`:
 1. Run the command: `composer archive create -t dir -n .` 
 2. Run `./startComposerFunctions.sh`
 3. Start the service for webserver. From the `cdsApp/` directory, run `ng serve --open`. The webapp will be deployed on `localhost:4200`.
+
+
+## Demo Videos
+
+To see the CDS application in action:
+* Part A: https://youtu.be/Vhy8evJL2qQ
+* Part B: https://youtu.be/pBaPj_59nlg 
