@@ -1,6 +1,6 @@
 # Credit Default Swap (CDS) Proof-of-Concept
 
-Proof of concept is developed on `hyperledger fabric v1.0`.
+Proof of concept is developed on `hyperledger fabric v1.1`. Issues with the minor upgrade at the moment, still in the middle of fixing it. 
 
 Structure:
 
@@ -55,7 +55,7 @@ To deploy, you must first start the fabric network, start REST service and then 
 
 ### Prerequisites:
 
-PeerAdmin must be generated in `/tmp` file. Enroll secret and pw can be anything. 
+PeerAdmin must be generated in `/tmp` file. From `~/fabric-dev-servers/`, run `./createPeerAdminCard.sh`.
 
 ### Start Fabric Network
 From the `/cds-network` directory: 
