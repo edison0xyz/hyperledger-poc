@@ -24,7 +24,7 @@ Tested to be running on:
 
 ## Installation
 
-Before compiling and running the source code, we will require the following environments:
+Before compiling and running the source code, we will require an environment with the following: 
 * Operating Systems: Ubuntu Linux 14.04 / 16.04 LTS (both 64-bit), or Mac OS 10.12
 * Docker Engine: Version 17.03 or higher
 * Docker-Compose: Version 1.8 or higher
@@ -34,45 +34,48 @@ Before compiling and running the source code, we will require the following envi
 * Python: 2.7.x
 
 If you do not have any of the tools above, follow the instructions below:
-
 1. Install NPM
-  * Mac: `brew install node`
-  * Other OS: [Instructions](https://www.npmjs.com/get-npm)
+    * Mac: `brew install node`
+    * Other OS: [Instructions](https://www.npmjs.com/get-npm)
 2. Install the pre-requisites for Hyperledger Composer: [Instructions for Ubuntu and Mac OS](https://hyperledger.github.io/composer/latest/installing/installing-prereqs)
 3. Install the tools needed for developmental platform:
-  * Essential Composer CLI Tools: `npm install -g composer-cli`
-  * Utility for running REST Server on machine: `npm install -g composer-rest-server`
-  * Install generator (needed for application assets): `npm install -g generator-hyperledger-composer`
-  * (Optional) Hyperledger Playground to graphically create business network: `npm install -g composer-playground`
-4. Create peer admin card. Check that it is placed in the `/tmp` folder (default behavior).
-  * `~/fabric-dev-servers/createPeerAdminCard.sh`
+    * Essential Composer CLI Tools: `npm install -g composer-cli`
+    * Utility for running REST Server on machine: `npm install -g composer-rest-server`
+    * Install generator (needed for application assets): `npm install -g generator-hyperledger-composer`
+    * Install angular: `npm install angular`
+    * Install angular CLI tool: `npm install angular`
+    * (Optional) Hyperledger Playground to graphically create business network: `npm install -g composer-playground`
+5. Install Hyperledger Fabric by running the following commands:
+```
+mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers
 
+curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
+tar -xvf fabric-dev-servers.tar.gz
 
-2. Angular: 
-  * Install angular: `npm install angular`
-  * Install angular CLI tools: `npm install -g @angular/cli`
+cd ~/fabric-dev-servers
 
-3. Install the development environment by following these steps: `https://hyperledger.github.io/composer/latest/installing/development-tools`
+./downloadFabric.sh
+```
+5. Create peer admin card. This admin card is required for deployment of cds-network: 
+    * `~/fabric-dev-servers/createPeerAdminCard.sh`
 
+## Deployment
 
-## Deploying
+To deploy, you must first start the fabric network, start REST service and then launch the web app. 
 
-To deploy, you must first start the fabric network, start REST service and then launch the web app. There are two ways to deploy. One, you can go run from my production-environment within `production/`. For _more advanced users_, you can try to compile and run from the `cds-network/` directory. 
+There are two ways to deploy. One, you can go run from my production-environment within `production/`. 
+
+Two, if you wish to compile the network yourself, navigate to `cds-network/` directory and following [these](cds-network/readme.md) instructions.
 
 ### Run from `production/`
 
-1. Go to `production/` and run `./startComposerFunctions.sh`. Refer to [Here](production/readme.md) for more documentation.
+1. Go to `production/` and run `./startComposerFunctions.sh`. Refer to [here](production/readme.md) for more documentation.
 2. Start the service for webserver. From the `cdsApp/` directory, run `ng serve --open`. The webapp will be deployed on `localhost:4200`.
 
-### Compile latest source code from `cds-network/`
-
-Source code for Hyperledger Fabric is found in cds-network.
-
-From `cds-network/`:
-1. Run the command: `composer archive create -t dir -n .` 
-2. Run `./startComposerFunctions.sh`
-3. Start the service for webserver. From the `cdsApp/` directory, run `ng serve --open`. The webapp will be deployed on `localhost:4200`.
-
+## General Utility
+General utility functions are included in `\utility-tools`. These tools help to automate manual tasks. However, if you run into problem, I recommend running the commands individually.
+* `restartCDSFabric.sh`: Restarts fabric network
+* `runall.sh`: Restarts docker images and fabric network. Then start composer function from `../production`.
 
 ## Demo Videos
 
