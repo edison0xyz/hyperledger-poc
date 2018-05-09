@@ -13,14 +13,13 @@ Structure:
 
 Before deploying the application, you must first ensure that the necessary pre-requisites are installed. 
 
-Tested to be running on: 
-* Composer runtime version: 0.19.4
-* Hyperledger Fabric v1.1
-* Typescript 2.7.2
-* Angular v. 5.2.7
-* Node 10.0.0
-
-* Angular CLI: 1.6.7
+* Tested to be running on: 
+    * Composer runtime version: 0.19.4
+    * Hyperledger Fabric v1.1
+    * Typescript 2.7.2
+    * Angular v. 5.2.7
+    * Node 10.0.0
+    * Angular CLI: 1.6.7
 
 ## Installation
 
@@ -65,11 +64,11 @@ To deploy, you must first start the fabric network, start REST service and then 
 
 There are two ways to deploy. One, you can go run from my production-environment within `production/`. 
 
-Two, if you wish to compile the network yourself, navigate to `cds-network/` directory and following [these](cds-network/readme.md) instructions.
+Two, if you wish to compile the network yourself, navigate to `cds-network/` directory and following [these](cds-network/README.md) instructions.
 
 ### Run from `production/`
 
-1. Go to `production/` and run `./startComposerFunctions.sh`. Refer to [here](production/readme.md) for more documentation.
+1. Go to `production/` and run `./startComposerFunctions.sh`. Refer to [here](production/README.md) for more documentation.
 2. Start the service for webserver. From the `cdsApp/` directory, run `ng serve --open`. The webapp will be deployed on `localhost:4200`.
 
 ## General Utility
